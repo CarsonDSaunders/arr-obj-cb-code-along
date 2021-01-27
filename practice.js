@@ -3,7 +3,7 @@
 // Modify the function below to return the first item of the array that is being passed in
 
 function first(arr) {
-  //Code here
+  return arr[0];
 }
 
 //////////////////PROBLEM 2////////////////////
@@ -11,7 +11,7 @@ function first(arr) {
 // Modify the function below to return the length of the array that is being passed in
 
 function length(arr) {
-  //Code here
+  return arr.length;
 }
 
 //////////////////PROBLEM 3////////////////////
@@ -19,7 +19,7 @@ function length(arr) {
 // Modify the function below to return the last item of the array that is being passed in
 
 function last(arr) {
-  //Code here
+  return arr.pop();
 }
 
 //////////////////PROBLEM 4////////////////////
@@ -27,7 +27,7 @@ function last(arr) {
 // Modify the function below to add the passed in number to the end of the passed in array
 
 function addItem(array, number) {
-  //Code here
+  array.push(number);
   return array
 }
 
@@ -36,7 +36,7 @@ function addItem(array, number) {
 // Modify the function below to remove the last item of the array being passed in
 
 function removeLast(array) {
-  //Code here
+  array.pop();
   return array
 }
 
@@ -45,7 +45,7 @@ function removeLast(array) {
 // Modify the function below to remove the first item of the array being passed in
 
 function removeFirst(array) {
-  //Code here
+  array.shift();
   return array
 }
 
@@ -56,7 +56,7 @@ function removeFirst(array) {
 function maker() {
   var numbers = []
   for (var i = 0; i <= 25; i++) {
-    //Code here
+    numbers.push(i);
   }
 
   return numbers
@@ -68,8 +68,9 @@ function maker() {
 
 function count31() {
   var numbers = []
-
-  //Code here
+  for (let i = 0; i <= 31; i++) {
+    numbers.push(i);
+  }
 
   return numbers
 }
@@ -86,7 +87,7 @@ function backWards(arr) {
   var newArray = []
 
   for (var i = arr.length - 1; i >= 0; i--) {
-    // code here
+    newArray.push(arr[i]);
   }
 
   return newArray
@@ -100,7 +101,11 @@ function backWards(arr) {
 // findInArray([0,1,2,3], 4); -> false
 
 function findInArray(arr, value) {
-  // code here
+  if (arr.includes(value)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 //////////////////PROBLEM 11////////////////////
@@ -114,7 +119,7 @@ function addTen(arr) {
   var newArr = []
 
   for (var i = 0; i < arr.length; i++) {
-    // code here
+    newArr[i] = arr[i] + 10;
   }
 
   return newArr
@@ -131,7 +136,7 @@ function personName() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code here
+  return person.firstName;
 }
 
 //////////////////PROBLEM 13////////////////////
@@ -145,7 +150,7 @@ function personLocation() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code Here
+  return person["location"];
 }
 
 //////////////////PROBLEM 14////////////////////
@@ -154,7 +159,7 @@ function personLocation() {
 
 const backpack = {}
 
-// Code Here
+backpack.frontPocket = "compass";
 
 //////////////////PROBLEM 15////////////////////
 
@@ -162,7 +167,7 @@ const backpack = {}
 
 const box = {}
 
-// Code Here
+box["material"] = "cardboard";
 
 //////////////////PROBLEM 16////////////////////
 
@@ -172,7 +177,7 @@ const person = {}
 
 person['firstName'] = 'sally'
 
-//code here
+let userFirstName = person.firstName;
 
 //////////////////PROBLEM 17////////////////////
 
@@ -186,7 +191,9 @@ person['firstName'] = 'sally'
 // };
 
 function updateUser(user) {
-  // Code Here
+  user.name = "Ryan";
+  user.pwHash = "superSafe";
+  user.username = "ryan2020";
 }
 
 //////////////////PROBLEM 18////////////////////
@@ -194,20 +201,29 @@ function updateUser(user) {
 //Inside the function updateEmail, update the email property of the passed in object to be the value of the parameter str. Return the updated object.
 
 function updateEmail(obj, str) {
-  // Code here
+  obj.email = str;
 }
 
 //////////////////PROBLEM 19////////////////////
 
 // Write a function called isOldEnough that takes a person obj and checks the age property to see if the person is old enough to enter the club.  If they are 21 or older return true else return false.
 
-// Code here
+function isOldEnough( obj ) {
+  if (obj.age >= 21) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 //////////////////PROBLEM 20////////////////////
 
 //Create a function called addRole that takes in a user object as the first parameter and a string as the second parameter.  The string will represent the user's new role in the system (i.e. admin, creator, editor, visitor). Create a new property on the user object called "role" and assign the passed in string to it, then return the updated object.
 
-// Code here
+let addRole = function( user, str ) {
+  user.role = str;
+  return user;
+}
 
 ///////////////////////////////////////////////////////
 
@@ -216,7 +232,7 @@ function updateEmail(obj, str) {
 * Ternary operators are similar to if-statements. Below is the basic structure of a ternary statement.
 
 ! condition ? firstExpression : secondExpression
-* If condition evaluates to true, firstExpression is executed. What do you think will happen if condition evaluates to false?
+* If condition evaluates to true, firstExpression is executed. What do you think will happen if condition evaluates to false? secondExpression
 
 * Our checkAge function accepts one parameter, and declares a variable that will have one of two values depending on that parameter.
 
@@ -240,11 +256,8 @@ function checkAge(age) {
 // Rewrite the existing if statement as a ternary.
 
 function schoolStatus(status) {
-  // if (status == 'Good') {
-  //   return 'Wow, great job kiddo!'
-  // } else {
-  //   return 'No more video games!'
-  // }
+  var response = (status == "Good") ? "Wow, great job kiddo!" : "No more video games!"
+  return response;
 }
 
 //////////////////PROBLEM 22////////////////////
@@ -256,7 +269,13 @@ function schoolStatus(status) {
 // If age is greater than 18, return: Somebody is really getting up there, huh?
 
 function messageBasedOnAge(age) {
-  //code here
+  var message = age < 18
+    ? "Not quite old enough, sorry."
+    : age === 18
+    ? "Congrats on being an adult!"
+    : "Somebody is really getting up there, huh?"
+    
+    return message;
 }
 
 //////////////////PROBLEM 23////////////////////
@@ -272,7 +291,9 @@ function innerFn() {
 }
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Invoke function here
+function outerFn( callback ) {
+  return callback();
+}
 
 //////////////////PROBLEM 24////////////////////
 
@@ -280,7 +301,9 @@ function innerFn() {
 // The fullName function should return the callback, passing in firstName and lastName as parameters.
 // To test, invoke fullName with your first name, last name and the welcomeMessage function as arguments.
 
-// Create function fullName here
+function fullName( firstName, lastName, callback ) {
+  return callback( firstName, lastName )
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function welcomeMessage(first, last) {
@@ -288,15 +311,16 @@ function welcomeMessage(first, last) {
 }
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Invoke fullName below
-
 //////////////////PROBLEM 25////////////////////
 
 // Do not edit the code below.
 let age = 'TBD'
 // Do not edit the code above.
 
-// Create a function called canDrink that will take in three parameters. The first parameter will be an number representing an age. The second and third parameters will be callbacks. The functions drinkSoda and drinkAlcohol are examples of callbacks that could be passed into your function.
+// Create a function called canDrink that will take in three parameters. 
+//The first parameter will be an number representing an age. 
+//The second and third parameters will be callbacks. 
+//The functions drinkSoda and drinkAlcohol are examples of callbacks that could be passed into your function.
 
 // If the age is below 21, return the invocation of the first callback
 // If the age is 21 or greater, return the invocation of the second callback
@@ -312,13 +336,26 @@ function drinkAlcohol() {
 
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
-// Create function canDrink here
+function canDrink( age, cb1, cb2 ) {
+  return age < 21 ? cb1() : cb2();
+}
 
 //////////////////PROBLEM 26////////////////////
 
-// Write two functions, one called add and one called multiply, that each takes in two numbers and returns the appropriate new value.
+// Write two functions, one called add and one called multiply, that each take in 
+//two numbers and returns the appropriate new value.
 
 // Write a function called math that takes in two numbers, and a callback 'operator' as parameters.
-// This function should return a operator invoked with the appropriate arguments.
+// This function should return an operator invoked with the appropriate arguments.
 
-//Code here
+function add( num1, num2 ) {
+  return num1 + num2;
+}
+
+function multiply( num3, num4 ) {
+  return num3 * num4;
+}
+
+function math( mathNum1, mathNum2, operator) {
+    return operator === add ? add( mathNum1, mathNum2 ) : multiply( mathNum1, mathNum2 );
+}
